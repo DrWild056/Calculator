@@ -1,0 +1,16 @@
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.csproj.AssemblyReference.cache
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.csproj.SuggestedBindingRedirects.cache
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\MainWindow.g.cs
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\App.g.cs
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1_MarkupCompile.cache
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1_MarkupCompile.lref
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\bin\Debug\Calculator1.exe.config
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\bin\Debug\Calculator1.exe
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\bin\Debug\Calculator1.pdb
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\MainWindow.baml
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.g.resources
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.Properties.Resources.resources
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.csproj.GenerateResource.cache
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.csproj.CoreCompileInputs.cache
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.exe
+C:\Users\MostWilded\source\repos\Calculator1\Calculator1\obj\Debug\Calculator1.pdb
