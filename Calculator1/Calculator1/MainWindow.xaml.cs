@@ -13,68 +13,94 @@ namespace Calculator1
 
         string operation = "";
 
-
         string output = "";
         public MainWindow()
         {
             InitializeComponent();
-
-            
+   
         }
-        private void BtnChar_Click(object sender, RoutedEventArgs e)
+    private void BtnChar_Click(object sender, RoutedEventArgs e)
         {
             string name = ((Button)sender).Name;
 
             switch(name)
             {
                 case "BtnOne":
+
                     output += "1";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnTwo":
+
                     output += "2";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnThree":
                     output += "3";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnFour":
                     output += "4";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnFive":
+
                     output += "5";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnSix":
+
                     output += "6";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnSeven":
+
                     output += "7";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnEight":
+
                     output += "8";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnNine":
+
                     output += "9";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnZero":
+
                     output += "0";
+
                     OutputTextBlock.Text = output;
+
                     break;
 
                 case "BtnDecimal":
@@ -83,10 +109,10 @@ namespace Calculator1
                     {
 
                         output += ".";  
+
                         OutputTextBlock.Text = output;
 
                     }
-                    
                        
                     break;
             }
@@ -100,7 +126,9 @@ namespace Calculator1
             if (output != "")
             {
                 temp = double.Parse(output);
+
                 output = "";
+
                 operation = "Add";
             }
         }
@@ -110,7 +138,9 @@ namespace Calculator1
             if (output != "")
             {
                 temp = double.Parse(output);
+
                 output = "";
+
                 operation = "Sub";
             }
         }
@@ -120,7 +150,9 @@ namespace Calculator1
             if (output != "")
             {
                 temp = double.Parse(output);
+
                 output = "";
+
                 operation = "Mul";
             }
         }
@@ -130,7 +162,9 @@ namespace Calculator1
             if (output != "")
             {
                 temp = double.Parse(output);
+
                 output = "";
+
                 operation = "Div";
             }
         }
@@ -146,21 +180,27 @@ namespace Calculator1
 
                 case "Add":
                     outputTemp = temp + double.Parse(output);
+
                     output = outputTemp.ToString();
+
                     OutputTextBlock.Text = output;
 
                     break;
 
                 case "Sub":
                     outputTemp = temp - double.Parse(output);
+
                     output = outputTemp.ToString();
+
                     OutputTextBlock.Text = output;
 
                     break;
 
                 case "Mul":
                      outputTemp = temp * double.Parse(output);
+
                     output = outputTemp.ToString();
+
                     OutputTextBlock.Text = output;
 
                     break;
@@ -169,7 +209,9 @@ namespace Calculator1
                     if (double.Parse(output) != 0)
                     {
                         outputTemp = temp / double.Parse(output);
+
                         output = outputTemp.ToString();
+
                         OutputTextBlock.Text = output;
                     }
                     
@@ -181,6 +223,7 @@ namespace Calculator1
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
             output = "";
+
             OutputTextBlock.Text = output;
         }
     }
