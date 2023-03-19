@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Calculator1
@@ -19,7 +21,36 @@ namespace Calculator1
             InitializeComponent();
    
         }
-    private void BtnChar_Click(object sender, RoutedEventArgs e)
+    
+        public enum OperationType
+        {
+            Add,
+            Sub,
+            Mul,
+            Div
+        }
+        private Dictionary<string, string> numberDictionary = new Dictionary<string, string>()
+        {
+            { "BtnOne", "1" },
+            { "BtnTwo", "2" },
+            { "BtnThree", "3" },
+            { "BtnFour", "4" },
+            { "BtnFive", "5" },
+            { "BtnSix", "6" },
+            { "BtnSeven", "7" },
+            { "BtnEight", "8" },
+            { "BtnNine", "9" },
+            { "BtnZero", "0" }
+        };
+        private Dictionary<OperationType, Action> operationDictionary = new Dictionary<OperationType, Action>()
+        {
+            { OperationType.Add, () => output = (temp + parseOutput).ToString() },
+            { OperationType.Sub, () => output = (temp - parseOutput).ToString() },
+            { OperationType.Mul, () => output = (temp * parseOutput).ToString() },
+            { OperationType.Div, () => output = (temp / parseOutput).ToString() }
+        };
+
+        private void BtnChar_Click(object sender, RoutedEventArgs e)
         {
             string name = ((Button)sender).Name;
 
@@ -105,10 +136,10 @@ namespace Calculator1
 
                 case "BtnDecimal":
                     
-                    if (!output.Contains("."))
+                    if (!output.Contains(","))
                     {
 
-                        output += ".";  
+                        output += ",";  
 
                         OutputTextBlock.Text = output;
 
@@ -119,57 +150,20 @@ namespace Calculator1
 
         }
 
+        private void AddOperation(OperationType type)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+
+                output = "";
+
+                operation = "";
+            }
+
         
 
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-
-                output = "";
-
-                operation = "Add";
-            }
-        }
-       
-        private void BtnSub_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-
-                output = "";
-
-                operation = "Sub";
-            }
-        }
-
-        private void BtnMul_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-
-                output = "";
-
-                operation = "Mul";
-            }
-        }
-
-        private void BtnDiv_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-
-                output = "";
-
-                operation = "Div";
-            }
-        }
-
-                private void BtnEquals_Click(object sender, RoutedEventArgs e)
+        private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {
             double outputTemp;
 
