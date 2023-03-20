@@ -13,15 +13,15 @@ namespace Calculator1
     public partial class MainWindow : Window
 
     {
-        double temp = 0;
+        static double temp = 0;
 
-        string operation = "";
+        static string operation = "";
 
-        string output = "";
+        static string output = "";
 
         double outputTemp = 0;
 
-        string parseOutput = "";
+        static double parseOutput = 0;
 
         
         public MainWindow()
@@ -65,7 +65,7 @@ namespace Calculator1
         {
             string name = ((Button)sender).Name;
 
-            if ((name = ",") && (name = output.Contains(",")))
+            if ((name == ",") && (output.Contains(",")))
             {
                 return;
             }
@@ -201,7 +201,7 @@ namespace Calculator1
 
                 item.Value();
 
-                OutputTextBlock.Text = output;
+                 OutputTextBlock.Text = output;
 
 
             }
