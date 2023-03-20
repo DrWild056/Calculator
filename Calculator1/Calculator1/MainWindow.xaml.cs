@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace Calculator1
 {
@@ -9,19 +11,25 @@ namespace Calculator1
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-        
+
     {
         double temp = 0;
 
         string operation = "";
 
         string output = "";
+
+        double outputTemp = 0;
+
+        string parseOutput = "";
+
+        
         public MainWindow()
         {
             InitializeComponent();
-   
+
         }
-    
+
         public enum OperationType
         {
             Add,
@@ -40,8 +48,10 @@ namespace Calculator1
             { "BtnSeven", "7" },
             { "BtnEight", "8" },
             { "BtnNine", "9" },
-            { "BtnZero", "0" }
+            { "BtnZero", "0" },
+            { "BtnDecimal", "," }
         };
+
         private Dictionary<OperationType, Action> operationDictionary = new Dictionary<OperationType, Action>()
         {
             { OperationType.Add, () => output = (temp + parseOutput).ToString() },
@@ -49,12 +59,30 @@ namespace Calculator1
             { OperationType.Mul, () => output = (temp * parseOutput).ToString() },
             { OperationType.Div, () => output = (temp / parseOutput).ToString() }
         };
+        
 
         private void BtnChar_Click(object sender, RoutedEventArgs e)
         {
             string name = ((Button)sender).Name;
 
-            switch(name)
+            if ((name = ",") && (name = output.Contains(",")))
+            {
+                return;
+            }
+            else
+            {
+                var item = numberDictionary.Where(d => d.Key == name).FirstOrDefault();
+
+                output += item.Value;
+
+                OutputTextBlock.Text = output;
+            }
+
+
+
+
+
+            switch (name)
             {
                 case "BtnOne":
 
@@ -135,16 +163,16 @@ namespace Calculator1
                     break;
 
                 case "BtnDecimal":
-                    
+
                     if (!output.Contains(","))
                     {
 
-                        output += ",";  
+                        output += ",";
 
                         OutputTextBlock.Text = output;
 
                     }
-                       
+
                     break;
             }
 
@@ -160,17 +188,33 @@ namespace Calculator1
 
                 operation = "";
             }
+        }
+        private void RunOperation(OperationType type)
+        {
+            if (type == OperationType.Div && outputTemp == 0)
+            {
+                return;
+            }
+            else
+            {
+                var item = numberDictionary.Where(d => d.Key = type).FirstOrDefault();
 
-        
+                item.Value();
+
+                OutputTextBlock.Text = output;
+
+
+            }
+        }
 
         private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {
-            double outputTemp;
+            RunOperation(operation);
 
             switch (operation)
-                
+
             {
-                
+
 
                 case "Add":
                     outputTemp = temp + double.Parse(output);
@@ -191,7 +235,7 @@ namespace Calculator1
                     break;
 
                 case "Mul":
-                     outputTemp = temp * double.Parse(output);
+                    outputTemp = temp * double.Parse(output);
 
                     output = outputTemp.ToString();
 
@@ -208,7 +252,7 @@ namespace Calculator1
 
                         OutputTextBlock.Text = output;
                     }
-                    
+
                     break;
 
             }
@@ -219,6 +263,11 @@ namespace Calculator1
             output = "";
 
             OutputTextBlock.Text = output;
+
         }
+
     }
 }
+
+
+ 
