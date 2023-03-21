@@ -15,20 +15,13 @@ namespace Calculator1
     {
         static double temp = 0;
 
-        static string operation = "";
+        static OperationType operation;
 
         static string output = "";
 
-        double outputTemp = 0;
+        static double outputTemp = 0;
 
         static double parseOutput = 0;
-
-        
-        public MainWindow()
-        {
-            InitializeComponent();
-
-        }
 
         public enum OperationType
         {
@@ -37,6 +30,11 @@ namespace Calculator1
             Mul,
             Div
         }
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
         private Dictionary<string, string> numberDictionary = new Dictionary<string, string>()
         {
             { "BtnOne", "1" },
@@ -59,8 +57,6 @@ namespace Calculator1
             { OperationType.Mul, () => output = (temp * parseOutput).ToString() },
             { OperationType.Div, () => output = (temp / parseOutput).ToString() }
         };
-        
-
         private void BtnChar_Click(object sender, RoutedEventArgs e)
         {
             string name = ((Button)sender).Name;
@@ -77,132 +73,37 @@ namespace Calculator1
 
                 OutputTextBlock.Text = output;
             }
-
-
-
-
-
-            switch (name)
-            {
-                case "BtnOne":
-
-                    output += "1";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnTwo":
-
-                    output += "2";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnThree":
-                    output += "3";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnFour":
-                    output += "4";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnFive":
-
-                    output += "5";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnSix":
-
-                    output += "6";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnSeven":
-
-                    output += "7";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnEight":
-
-                    output += "8";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnNine":
-
-                    output += "9";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnZero":
-
-                    output += "0";
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "BtnDecimal":
-
-                    if (!output.Contains(","))
-                    {
-
-                        output += ",";
-
-                        OutputTextBlock.Text = output;
-
-                    }
-
-                    break;
-            }
-
         }
-
         private void AddOperation(OperationType type)
         {
+            
             if (output != "")
             {
                 temp = double.Parse(output);
 
                 output = "";
 
-                operation = "";
+                operation = type;
             }
         }
+
         private void RunOperation(OperationType type)
         {
-            if (type == OperationType.Div && outputTemp == 0)
+            parseOutput = double.Parse(output);
+
+            if (type == OperationType.Div && (temp == 0 || parseOutput == 0))
             {
+                MessageBox.Show("На ноль делить нельзя");
+
                 return;
             }
             else
             {
-                var item = numberDictionary.Where(d => d.Key = type).FirstOrDefault();
+                var item = operationDictionary.Where(d => d.Key == type).FirstOrDefault();
 
                 item.Value();
 
-                 OutputTextBlock.Text = output;
-
+                OutputTextBlock.Text = output;
 
             }
         }
@@ -210,53 +111,9 @@ namespace Calculator1
         private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {
             RunOperation(operation);
-
-            switch (operation)
-
-            {
-
-
-                case "Add":
-                    outputTemp = temp + double.Parse(output);
-
-                    output = outputTemp.ToString();
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "Sub":
-                    outputTemp = temp - double.Parse(output);
-
-                    output = outputTemp.ToString();
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "Mul":
-                    outputTemp = temp * double.Parse(output);
-
-                    output = outputTemp.ToString();
-
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "Div":
-                    if (double.Parse(output) != 0)
-                    {
-                        outputTemp = temp / double.Parse(output);
-
-                        output = outputTemp.ToString();
-
-                        OutputTextBlock.Text = output;
-                    }
-
-                    break;
-
-            }
         }
+
+        
 
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
@@ -266,6 +123,25 @@ namespace Calculator1
 
         }
 
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddOperation(OperationType.Add);
+        }
+
+        private void BtnSub_Click(object sender, RoutedEventArgs e)
+        {
+            AddOperation(OperationType.Sub);
+        }
+
+        private void BtnMul_Click(object sender, RoutedEventArgs e)
+        {
+            AddOperation(OperationType.Mul);
+        }
+
+        private void BtnDiv_Click(object sender, RoutedEventArgs e)
+        {
+            AddOperation(OperationType.Div);
+        }
     }
 }
 

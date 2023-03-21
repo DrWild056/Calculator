@@ -137,8 +137,7 @@
                 Content="+" 
                 FontSize="30" 
                 FontWeight="Bold"
-                Click="BtnAdd_Click"
-                />
+                Click="BtnAdd_Click"/>
 
         <Button 
             x:Name="BtnSub" 
