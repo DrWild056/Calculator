@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Xml.Linq;
 
 namespace Calculator1
 {
@@ -86,7 +85,6 @@ namespace Calculator1
                 operation = type;
             }
         }
-
         private void RunOperation(OperationType type)
         {
             parseOutput = double.Parse(output);
@@ -104,17 +102,12 @@ namespace Calculator1
                 item.Value();
 
                 OutputTextBlock.Text = output;
-
             }
         }
-
         private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {
             RunOperation(operation);
         }
-
-        
-
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
             output = "";
@@ -122,28 +115,21 @@ namespace Calculator1
             OutputTextBlock.Text = output;
 
         }
-
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             AddOperation(OperationType.Add);
         }
-
         private void BtnSub_Click(object sender, RoutedEventArgs e)
         {
             AddOperation(OperationType.Sub);
         }
-
         private void BtnMul_Click(object sender, RoutedEventArgs e)
         {
             AddOperation(OperationType.Mul);
         }
-
         private void BtnDiv_Click(object sender, RoutedEventArgs e)
         {
             AddOperation(OperationType.Div);
         }
     }
 }
-
-
- 

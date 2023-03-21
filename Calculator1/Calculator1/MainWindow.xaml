@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Calculator1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="340">
+    
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -15,12 +16,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
         <Border 
             Grid.Column="0"
             Grid.ColumnSpan="5"
@@ -32,172 +35,163 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="4"
-            
             Margin="5"
             VerticalAlignment="bottom"
             Text=""
             FontSize="40"/>
 
-
-
         <Button 
             x:Name="BtnOne" 
-                Grid.Row="4" 
-                Grid.Column="0" 
-                Content="1" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="4" 
+            Grid.Column="0" 
+            Content="1" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnTwo" 
-                Grid.Row="4" 
-                Grid.Column="1" 
-                Content="2" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="4" 
+            Grid.Column="1" 
+            Content="2" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnThree" 
-                Grid.Row="4" 
-                Grid.Column="2" 
-                Content="3" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="4" 
+            Grid.Column="2" 
+            Content="3" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnFour" 
-                Grid.Row="3" 
-                Grid.Column="0" 
-                Content="4" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="3" 
+            Grid.Column="0" 
+            Content="4" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnFive" 
-                Grid.Row="3" 
-                Grid.Column="1" 
-                Content="5" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="3" 
+            Grid.Column="1" 
+            Content="5" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnSix" 
-                Grid.Row="3" 
-                Grid.Column="2" 
-                Content="6" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="3" 
+            Grid.Column="2" 
+            Content="6" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnSeven" 
-                Grid.Row="2" 
-                Grid.Column="0" 
-                Content="7" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="2" 
+            Grid.Column="0" 
+            Content="7" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnEight" 
-                Grid.Row="2" 
-                Grid.Column="1" 
-                Content="8" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="2" 
+            Grid.Column="1" 
+            Content="8" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnNine" 
-                Grid.Row="2" 
-                Grid.Column="2" 
-                Content="9" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="2" 
+            Grid.Column="2" 
+            Content="9" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
         
         <Button 
             x:Name="BtnZero" 
-                Grid.Row="5" 
-                Grid.Column="1" 
-                Content="0" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Content="0" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
 
         <Button 
             x:Name="BtnAdd" 
-                Grid.Row="4" 
-                Grid.Column="4" 
-                Content="+" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnAdd_Click"/>
+            Grid.Row="4" 
+            Grid.Column="4" 
+            Content="+" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnAdd_Click"/>
 
         <Button 
             x:Name="BtnSub" 
-                Grid.Row="3" 
-                Grid.Column="4" 
-                Content="-" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnSub_Click"/>
+            Grid.Row="3" 
+            Grid.Column="4" 
+            Content="-" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnSub_Click"/>
         
         <Button 
             x:Name="BtnMul" 
-                Grid.Row="2" 
-                Grid.Column="4" 
-                Content="x" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnMul_Click"
-                />
+            Grid.Row="2" 
+            Grid.Column="4" 
+            Content="x" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnMul_Click"/>
         
         <Button 
             x:Name="BtnDiv" 
-                Grid.Row="1" 
-                Grid.Column="4" 
-                Content="/" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnDiv_Click"
-                />
+            Grid.Row="1" 
+            Grid.Column="4" 
+            Content="/" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnDiv_Click"/>
         
         <Button 
             x:Name="BtnEquals" 
-                Grid.Row="5" 
-                Grid.Column="3" 
-                Content="=" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnEquals_Click"/>
+            Grid.Row="5" 
+            Grid.Column="3" 
+            Content="=" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnEquals_Click"/>
         
         <Button 
             x:Name="BtnClear" 
-                Grid.Row="5" 
-                Grid.Column="2" 
-                Content="C" 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnClear_Click"
-                />
+            Grid.Row="5" 
+            Grid.Column="2" 
+            Content="C" 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnClear_Click"/>
 
         <Button 
             x:Name="BtnDecimal" 
-                Grid.Row="5" 
-                Grid.Column="0" 
-                Content="." 
-                FontSize="30" 
-                FontWeight="Bold"
-                Click="BtnChar_Click"/>
-
-
-
-
+            Grid.Row="5" 
+            Grid.Column="0" 
+            Content="." 
+            FontSize="30" 
+            FontWeight="Bold"
+            Click="BtnChar_Click"/>
+        
     </Grid>
 </Window>
